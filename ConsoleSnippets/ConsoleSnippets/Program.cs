@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.FrameworkVersions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,30 +21,49 @@ namespace ConsoleSnippets
             while(!shouldExit)
             {
                 WriteMenu();
-                shouldExit = ReadMenuOption();
+                ReadMenuOption(out shouldExit);
             }
         }
 
-        private static bool ReadMenuOption()
+
+        /// <summary>
+        /// Reads the menu options and returns true if exit is pressed.
+        /// </summary>
+        /// <returns></returns>
+        private static void ReadMenuOption(out bool shouldExit)
         {
             var key = Console.ReadKey(true);
-            bool shouldExit;
+            shouldExit = false;
 
             switch(key.KeyChar)
             {
                 case '1':
                     SingletonTest();
-                    shouldExit = false;
+                    break;
+                case '2':
+                    NetFeaturesTest();
                     break;
                 case 'x':
+                    // Environment.Exit(0) can be used as well here, but I wanted the program to exit "more gracefully" by not using the Environment.Exit(0) call at all;
                     shouldExit = true;
                     break;
                 default:
-                    shouldExit = false;
                     break;
             }
+        }
 
-            return shouldExit;
+        private static void NetFeaturesTest()
+        {
+            Console.WriteLine(new string('-', Console.BufferWidth));
+
+            Console.WriteLine(FrameworkVersionsFeatureTest.Instance.AutoPropertyInitialized);
+            Console.WriteLine(FrameworkVersionsFeatureTest.Instance.PropertyWithBackingField);
+
+            Console.WriteLine(FrameworkVersionsFeatureTest.Instance.LambdaTest());
+            Console.WriteLine(FrameworkVersionsFeatureTest.Instance.LinqTest());
+            Console.WriteLine(FrameworkVersionsFeatureTest.Instance.InitializerTest());
+
+            Console.WriteLine(new string('-', Console.BufferWidth));
         }
 
         private static void SingletonTest()
@@ -58,13 +78,14 @@ namespace ConsoleSnippets
         private static void WriteMenu()
         {
             Console.WriteLine("Pick one of the options below:");
-            Console.WriteLine("1 - singletons.");
+            Console.WriteLine("1 - Singletons.");
+            Console.WriteLine("2 - Net Versions Features.");
             Console.WriteLine("x - exit.");
         }
 
         private static void WriteWelcomeMessage()
         {
-            Console.WriteLine("Welcome to my snippet-program. The idea is to show off some programming snippets.");
+            Console.WriteLine("Welcome to my snippet-program. The idea is to show off some programming snippets (and the way I program).");
         }
     }
 }

@@ -45,9 +45,15 @@ namespace FizzBuzz_v3.UnitTest
         public void TestFizzBuzzUnexpectedValues()
         {
             var fizzBuzzFactory = FizzBuzzFactory.Instance;
+            Assert.AreEqual("FizzBuzz", fizzBuzzFactory.DetermineFuzziness(0));
+            Assert.AreEqual("101", fizzBuzzFactory.DetermineFuzziness(101));
+
             Assert.AreEqual("Fizz", fizzBuzzFactory.DetermineFuzziness(999));
+            Assert.AreEqual("Buzz", fizzBuzzFactory.DetermineFuzziness(-10000));
 
 
+            Assert.AreEqual(int.MaxValue.ToString(), fizzBuzzFactory.DetermineFuzziness(int.MaxValue));
+            Assert.AreEqual(int.MinValue.ToString(), fizzBuzzFactory.DetermineFuzziness(int.MinValue));
         }
     }
 }

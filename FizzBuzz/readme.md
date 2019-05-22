@@ -30,3 +30,5 @@ v3 consists of multiple projects
 - FizzBuzz_v3:			main program
 - FizzBuzz_v3.Domain: 	logic portion
 - FizzBuzz_v3.UnitTest:	unit test
+
+Note: normally one first starts with unit tests. In this case they are added afterwards, which should _not_ happen.

@@ -6,8 +6,8 @@ I decided to do a take on this, "the proper way".
 
 > write a program that prints the numbers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz".
 
-https://blog.codinghorror.com/why-cant-programmers-program/
-https://en.wikipedia.org/wiki/Fizz_buzz
+- https://blog.codinghorror.com/why-cant-programmers-program/
+- https://en.wikipedia.org/wiki/Fizz_buzz
 
 I decided to create different versions on it to show my thought-process.
 

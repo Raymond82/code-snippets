@@ -12,6 +12,8 @@ namespace FizzBuzz_v1
         {
             DoFizzBuzz();
             Console.ReadKey(true);
+
+            Console.WriteLine("- V1 -");
         }
 
         private static void DoFizzBuzz()

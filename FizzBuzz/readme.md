@@ -1,4 +1,4 @@
-#introduction
+# introduction
 
 I used to read codinghorror since it is an interesting blog for programmers. On it, he mentioned the fizzbuzz problem and the (lack of) skill of senior programmers.
 
@@ -11,18 +11,18 @@ https://en.wikipedia.org/wiki/Fizz_buzz
 
 I decided to create different versions on it to show my thought-process.
 
-#versions
+## versions
 
 - v1: basic version, basic implementation with a simple for-loop
 - v2: separate logic from for-loop
 - v3: place logic inside a domain-class and unit test this version
 
-#remarks
+## remarks
 I made one solution for this, due to the triviality of this version, "set as startup project" whenever I want to change a version.
 
-FizzBuzz_v1
-FizzBuzz_v2
-FizzBuzz_v3
+- FizzBuzz_v1
+- FizzBuzz_v2
+- FizzBuzz_v3
 
 Are the startable projects.
 

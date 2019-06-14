@@ -8,5 +8,6 @@ For now it features:
 
 I plan to:
 - See how relationships are handled (I want to be able to navitage from albums to artists)
-- Make it look a bit more nice, check out a (lazy?) list, filtering options, sorting options
+- Make it look a bit more nice (add some css)
+- Check out a (lazy?) list, filtering options, sorting options
 - Incorperate this into a home page

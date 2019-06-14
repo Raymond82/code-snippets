@@ -7,8 +7,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MVC_Test.Models.Core;
 
 namespace MVC_Test
 {
@@ -21,7 +23,6 @@ namespace MVC_Test
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
@@ -31,6 +32,10 @@ namespace MVC_Test
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            var connection = "Data Source=Chinook.db";
+
+            // NOTE: a refence to Microsoft.EntityFrameworkCore has to be added to the usings in order to use the sqlite context.
+            services.AddDbContext<ChinookContext>(options => options.UseSqlite(connection));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -58,6 +63,8 @@ namespace MVC_Test
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            
         }
     }
 }

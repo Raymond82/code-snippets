@@ -21,7 +21,7 @@ namespace MVC_Test.Controllers
         // GET: Albums
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Album.ToListAsync());
+            return View(await _context.Albums.ToListAsync());
         }
 
         // GET: Albums/Details/5
@@ -32,7 +32,7 @@ namespace MVC_Test.Controllers
                 return NotFound();
             }
 
-            var album = await _context.Album
+            var album = await _context.Albums
                 .FirstOrDefaultAsync(m => m.AlbumId == id);
             if (album == null)
             {
@@ -72,7 +72,7 @@ namespace MVC_Test.Controllers
                 return NotFound();
             }
 
-            var album = await _context.Album.FindAsync(id);
+            var album = await _context.Albums.FindAsync(id);
             if (album == null)
             {
                 return NotFound();
@@ -123,7 +123,7 @@ namespace MVC_Test.Controllers
                 return NotFound();
             }
 
-            var album = await _context.Album
+            var album = await _context.Albums
                 .FirstOrDefaultAsync(m => m.AlbumId == id);
             if (album == null)
             {
@@ -138,15 +138,15 @@ namespace MVC_Test.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
-            var album = await _context.Album.FindAsync(id);
-            _context.Album.Remove(album);
+            var album = await _context.Albums.FindAsync(id);
+            _context.Albums.Remove(album);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AlbumExists(long id)
         {
-            return _context.Album.Any(e => e.AlbumId == id);
+            return _context.Albums.Any(e => e.AlbumId == id);
         }
     }
 }

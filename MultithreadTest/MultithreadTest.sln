@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultithreadTest", "MultithreadTest\MultithreadTest.csproj", "{BD4C688E-0C17-4299-A45D-E2F588191CF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gu.Wpf.DataGrid2D", "External\Gu.Wpf.DataGrid2D-master\Gu.Wpf.DataGrid2D\Gu.Wpf.DataGrid2D.csproj", "{53AF7FFF-BCAD-43A5-8367-48429B2878BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD4C688E-0C17-4299-A45D-E2F588191CF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD4C688E-0C17-4299-A45D-E2F588191CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD4C688E-0C17-4299-A45D-E2F588191CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD4C688E-0C17-4299-A45D-E2F588191CF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53AF7FFF-BCAD-43A5-8367-48429B2878BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53AF7FFF-BCAD-43A5-8367-48429B2878BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53AF7FFF-BCAD-43A5-8367-48429B2878BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53AF7FFF-BCAD-43A5-8367-48429B2878BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9543E30A-C258-4C45-833D-9299AE0EA9C1}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,48 @@
+﻿<Window x:Class="Gu.Wpf.DataGrid2D.Demo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:demo="clr-namespace:Gu.Wpf.DataGrid2D.Demo"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow"
+        d:DataContext="{d:DesignInstance demo:Vm}"
+        WindowState="Maximized"
+        mc:Ignorable="d">
+    <TabControl>
+        <TabItem Header="int[,]">
+            <demo:Array2DView />
+        </TabItem>
+
+        <TabItem Header="int[][]">
+            <demo:JaggedView />
+        </TabItem>
+
+        <TabItem Header="OC&lt;OC&lt;T&gt;&gt;">
+            <demo:ObservableView />
+        </TabItem>
+
+        <TabItem Header="Transposed">
+            <demo:TransposedView />
+        </TabItem>
+
+        <TabItem Header="SelectedCellItem">
+            <demo:SelectedView />
+        </TabItem>
+
+        <TabItem Header="PropertyChangedView">
+            <demo:PropertyChangedView />
+        </TabItem>
+
+        <TabItem Header="RowNumbers">
+            <demo:RowNumbersView />
+        </TabItem>
+
+        <TabItem Header="CellTemplate">
+            <demo:CellTemplateView />
+        </TabItem>
+
+        <TabItem Header="AddRemoveView">
+            <demo:AddRemoveView />
+        </TabItem>
+    </TabControl>
+</Window>

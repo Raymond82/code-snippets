@@ -1,0 +1,97 @@
+﻿<!--  ReSharper disable UnusedMember.Global  -->
+<UserControl x:Class="Gu.Wpf.DataGrid2D.Demo.Array2DView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dataGrid2D="http://gu.se/DataGrid2D"
+             xmlns:local="clr-namespace:Gu.Wpf.DataGrid2D.Demo"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+    <UserControl.DataContext>
+        <local:Array2DVm />
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="For UI tests">
+            <StackPanel>
+                <Button x:Name="UpdateDataButton"
+                        Command="{Binding UpdateDataCommand}"
+                        Content="UpdateData" />
+                <TextBlock x:Name="DataTextBox" Text="{Binding Data}" />
+            </StackPanel>
+        </GroupBox>
+        <UniformGrid Grid.Column="1" Columns="1">
+            <GroupBox Header="Vanilla">
+                <UniformGrid Rows="1">
+                    <GroupBox Header="Auto columns">
+                        <DataGrid x:Name="AutoColumns" dataGrid2D:ItemsSource.Array2D="{Binding Data2D}" />
+                    </GroupBox>
+
+                    <GroupBox Header="Readonly">
+                        <DataGrid dataGrid2D:ItemsSource.Array2D="{Binding Data2D}" IsReadOnly="True" />
+                    </GroupBox>
+
+                    <GroupBox Header="Explicit columns">
+                        <DataGrid x:Name="ExplicitColumns"
+                                  dataGrid2D:ItemsSource.Array2D="{Binding Data2D}"
+                                  AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <!--  ReSharper disable Xaml.BindingWithContextNotResolved  -->
+                                <DataGridTextColumn Binding="{Binding C0}" Header="Col 1" />
+                                <DataGridTextColumn Binding="{Binding C1}" Header="Col 2" />
+                                <!--  ReSharper restore Xaml.BindingWithContextNotResolved  -->
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+
+                    <GroupBox Header="With headers">
+                        <DataGrid x:Name="WithHeaders"
+                                  dataGrid2D:ItemsSource.Array2D="{Binding Data2D}"
+                                  dataGrid2D:ItemsSource.ColumnHeadersSource="{Binding ColumnHeaders}"
+                                  dataGrid2D:ItemsSource.RowHeadersSource="{Binding RowHeaders}"
+                                  ColumnWidth="SizeToHeader"
+                                  SelectionUnit="Cell" />
+                    </GroupBox>
+                </UniformGrid>
+            </GroupBox>
+
+            <GroupBox Header="Transposed">
+                <UniformGrid Rows="1">
+                    <GroupBox Header="Auto columns">
+                        <DataGrid x:Name="AutoColumnsTransposed" dataGrid2D:ItemsSource.Array2DTransposed="{Binding Data2D}" />
+                    </GroupBox>
+
+                    <GroupBox Header="Readonly">
+                        <DataGrid dataGrid2D:ItemsSource.Array2DTransposed="{Binding Data2D}" IsReadOnly="True" />
+                    </GroupBox>
+
+                    <GroupBox Header="Explicit columns">
+                        <DataGrid x:Name="ExplicitColumnsTransposed"
+                                  dataGrid2D:ItemsSource.Array2DTransposed="{Binding Data2D}"
+                                  AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <!--  ReSharper disable Xaml.BindingWithContextNotResolved  -->
+                                <DataGridTextColumn Binding="{Binding C0}" Header="Col 1" />
+                                <DataGridTextColumn Binding="{Binding C1}" Header="Col 2" />
+                                <DataGridTextColumn Binding="{Binding C2}" Header="Col 3" />
+                                <!--  ReSharper restore Xaml.BindingWithContextNotResolved  -->
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+
+                    <GroupBox Header="With headers">
+                        <DataGrid x:Name="WithHeadersTransposed"
+                                  dataGrid2D:ItemsSource.Array2DTransposed="{Binding Data2D}"
+                                  dataGrid2D:ItemsSource.ColumnHeadersSource="{Binding ColumnHeaders}"
+                                  dataGrid2D:ItemsSource.RowHeadersSource="{Binding RowHeaders}"
+                                  ColumnWidth="SizeToHeader"
+                                  SelectionUnit="Cell" />
+                    </GroupBox>
+                </UniformGrid>
+            </GroupBox>
+        </UniformGrid>
+    </Grid>
+</UserControl>

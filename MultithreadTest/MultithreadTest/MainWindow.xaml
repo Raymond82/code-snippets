@@ -1,0 +1,52 @@
+﻿<Window x:Class="MultithreadTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dg2d="http://gu.se/DataGrid2D"
+        xmlns:local="clr-namespace:MultithreadTest"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <DataGrid HeadersVisibility="None" Grid.Row="0" Grid.Column="0"
+                  dg2d:ItemsSource.RowsSource="{Binding FirstBuffer}" />
+
+        <DataGrid HeadersVisibility="None" Grid.Row="0" Grid.Column="1"
+                  dg2d:ItemsSource.RowsSource="{Binding SecondBuffer}" />
+
+        <DataGrid HeadersVisibility="None" Grid.Row="1" Grid.Column="0"
+                  dg2d:ItemsSource.RowsSource="{Binding ThirdBuffer}" />
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition  />
+                    <RowDefinition  />
+                    <RowDefinition  />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- row=0 and column=0 are technically not needed since the control will default to it anyway-->
+                <TextBlock Text="Unsafe counter:" Grid.Row="0" Grid.Column="0" FontSize="16" />
+                <Label Content="{Binding UnsafeCounter}" Grid.Row="0" Grid.Column="1"  />
+
+                <TextBlock Text="Safe counter:" Grid.Row="1" Grid.Column="0" FontSize="16" />
+                <Label Content="{Binding SafeCounter}" Grid.Row="1" Grid.Column="1"  />
+
+                <TextBlock Text="Difference:" Grid.Row="2" Grid.Column="0" FontSize="16" />
+                <Label Content="{Binding Difference}" Grid.Row="2" Grid.Column="1"  />
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
